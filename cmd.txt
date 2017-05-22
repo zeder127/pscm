@@ -3,3 +3,4 @@ mongod --config C:\Users\XW\Workspace\data\mongod.conf
 mongo
 
 1
+2
