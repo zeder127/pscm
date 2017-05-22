@@ -9,4 +9,6 @@ A - Angular
 N - Node
 
 TODOS:
-
+1
+2
+3
