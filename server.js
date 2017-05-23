@@ -24,8 +24,8 @@ mongoose.connection.on('error', (err) => {
 // const products = require('./routers/products');
 
 
-// Create a new app
-const app = express();
+// Create a new server
+const server = express();
 
 const users = require('./routes/users');
 
@@ -33,37 +33,37 @@ const users = require('./routes/users');
 const port = 3000;
 
 // Set cors MW
-app.use(cors());
+server.use(cors());
 
 //Set Static Folder
-app.use(express.static(path.join(__dirname, 'public')));
+server.use(express.static(path.join(__dirname, 'public')));
 
 // Set body-parser MW
-app.use(bodyParser.json());
+server.use(bodyParser.json());
 
 // Set passeord MW
-app.use(passport.initialize());
-app.use(passport.session());
+server.use(passport.initialize());
+server.use(passport.session());
 
 require('./config/passport')(passport);
 
 // Set router
-app.use('/users', users);
+server.use('/users', users);
 
 // Set port
-app.listen(port);
+server.listen(port);
 
 // Index Route
-app.get('/', (req, res) => {
+server.get('/', (req, res) => {
     res.send('hello world!!');
 })
 
 //View Engine
-// app.set('views', path.join(__dirname, 'views'));
-// app.set('view engine', 'ejs');
-// app.engine('html', require('ejs').renderFile);
+// server.set('views', path.join(__dirname, 'views'));
+// server.set('view engine', 'ejs');
+// server.engine('html', require('ejs').renderFile);
 
 // //Set Static Folder
-// app.use(express.static(path.join(__dirname, 'client')));
+// server.use(express.static(path.join(__dirname, 'client')));
 
 
